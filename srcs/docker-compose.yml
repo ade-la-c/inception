@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+#======= NGINX DOCKERFILE =======#
+  nginx:
+    depends_on:
+      - wordpress
+    build: ./srcs/nginx
+
+#===== WORDPRESS DOCKERFILE =====#
+  wordpress:
+    depends_on:
+      - mariadb
+
+#====== MARIADB DOCKERFILE ======#
+  mariadb:
+
+
+
+# VOLUMES #
+
+volumes:
+  php_nginx:
+    driver: local
