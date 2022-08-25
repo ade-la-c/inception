@@ -6,20 +6,68 @@ services:
   nginx:
     depends_on:
       - wordpress
-    build: ./srcs/nginx
+      - mariadb
+    build: ./requirements/nginx
+    ports:
+      - 443:443
+    container_name: nginx
+    restart: always
+    networks:
+      - inception_network
+    volumes:
+      - php_nginx:/var/www/html
 
 #===== WORDPRESS DOCKERFILE =====#
   wordpress:
     depends_on:
       - mariadb
+    build: ./requirements/wordpress
+    ports:
+      - 9000:9000
+    container_name: wordpress
+    restart: always
+    networks:
+      - inception_network
+    env_file:
+      - .env
+    volumes:
+      - php_nginx:/var/www/html
+
 
 #====== MARIADB DOCKERFILE ======#
   mariadb:
+    build: ./requirements/mariadb
+    ports:
+      - 3306:3306
+    container_name: mariadb
+    restart: always
+    networks:
+      - inception_network
+    env_file:
+      - .env
+    volumes:
+      - database:/var/lib/mysql
+    
+# NETWORKS #
 
-
+networks:
+  inception_network:
 
 # VOLUMES #
 
 volumes:
+
   php_nginx:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ade-la-c/data/php_nginx
+
+  database:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ade-la-c/data/db
+
