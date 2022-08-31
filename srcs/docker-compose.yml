@@ -70,4 +70,3 @@ volumes:
       type: none
       o: bind
       device: /home/ade-la-c/data/db
-

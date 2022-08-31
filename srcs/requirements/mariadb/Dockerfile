@@ -6,4 +6,6 @@ RUN		apt-get update -y && \
 
 COPY	./my.cnf /etc/mysql
 
-# COPY	
+COPY	./start.sh /
+
+CMD		[ "/start.sh" ]
