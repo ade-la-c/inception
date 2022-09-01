@@ -4,7 +4,7 @@ RUN		apt-get upgrade -y && \
 		apt-get update -y && \
 		apt-get install -y php7.3 php7.3-fpm php7.3-mysql
 
-# COPY	./tools/www.conf /etc/php/7.3/fpm/pool.d
+COPY	./www.conf /etc/php/7.3/fpm/pool.d
 
 RUN		mkdir -p /run/php
 

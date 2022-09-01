@@ -2,12 +2,13 @@ version: '3'
 
 services:
 
-#======= NGINX DOCKERFILE =======#
+#======= NGINX =======#
   nginx:
+    init: true
     depends_on:
       - wordpress
       - mariadb
-    build: ./requirements/nginx
+    build: ./requirements/nginx   # context ?
     ports:
       - 443:443
     container_name: nginx
@@ -17,11 +18,12 @@ services:
     volumes:
       - php_nginx:/var/www/html
 
-#===== WORDPRESS DOCKERFILE =====#
+#===== WORDPRESS =====#
   wordpress:
+    init: true
     depends_on:
       - mariadb
-    build: ./requirements/wordpress
+    build: ./requirements/wordpress  # context ?
     ports:
       - 9000:9000
     container_name: wordpress
@@ -34,9 +36,10 @@ services:
       - php_nginx:/var/www/html
 
 
-#====== MARIADB DOCKERFILE ======#
+#====== MARIADB ======#
   mariadb:
-    build: ./requirements/mariadb
+    init: true
+    build: ./requirements/mariadb   # context ?
     ports:
       - 3306:3306
     container_name: mariadb
@@ -47,7 +50,7 @@ services:
       - .env
     volumes:
       - database:/var/lib/mysql
-    
+
 # NETWORKS #
 
 networks:
