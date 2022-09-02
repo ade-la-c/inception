@@ -10,4 +10,4 @@ COPY	./my.cnf /etc/mysql
 
 COPY	./start.sh /
 
-CMD		[ "./start.sh" ]
+CMD		"./start.sh"
