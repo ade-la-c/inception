@@ -4,7 +4,7 @@ services:
 
 #======= NGINX =======#
   nginx:
-    init: true
+    # init: true
     depends_on:
       - wordpress
       - mariadb
@@ -15,7 +15,7 @@ services:
     container_name: nginx
     restart: always
     networks:
-      - inception_network
+      - docker-network
     volumes:
       - php_nginx:/var/www/html
     env_file:
@@ -23,7 +23,7 @@ services:
 
 #===== WORDPRESS =====#
   wordpress:
-    init: true
+    # init: true
     depends_on:
       - mariadb
     build: 
@@ -33,7 +33,7 @@ services:
     container_name: wordpress
     restart: always
     networks:
-      - inception_network
+      - docker-network
     env_file:
       - .env
     volumes:
@@ -42,7 +42,7 @@ services:
 
 #====== MARIADB ======#
   mariadb:
-    init: true
+    # init: true
     build: 
       context: ./requirements/mariadb
     ports:
@@ -50,14 +50,14 @@ services:
     container_name: mariadb
     restart: always
     networks:
-      - inception_network
+      - docker-network
     volumes:
       - database:/var/lib/mysql
 
 # NETWORKS #
 
 networks:
-  inception_network:
+  docker-network:
 
 # VOLUMES #
 
