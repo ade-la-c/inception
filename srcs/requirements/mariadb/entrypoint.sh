@@ -1,7 +1,7 @@
 cat .setup 2> /dev/null
 if [ $? -ne 0 ]; then
 	# modification de la DB mysql
-	usr/bin/mysqld_safe --datadir=/var/lib/mysql &
+	usr/bin/mysqld --datadir=/var/lib/mysql &
 
 	# ping pour attendre que la DB soit accessible
 	while ! mysqladmin ping -h "$MARIADB_HOST" --silent; do
