@@ -13,8 +13,9 @@ all:	up
 up:
 	docker-compose -f srcs/docker-compose.yml up --build
 
-down:
+clean:
 	docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
+
 first:
 	curl https://wordpress.org/latest.tar.gz --output latest
 	tar -xf latest
