@@ -11,7 +11,7 @@ RUN		mkdir -p /var/lib/mysqld /run/mysqld
 
 COPY	./create_db.sql /tmp/create_db.sql
 
-COPY	./my.cnf /etc/my.cnf.d
+COPY	./my.cnf /etc/my.cnf.d/
 
 COPY	./entrypoint.sh /
 RUN		chmod +x ./entrypoint.sh
