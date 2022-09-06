@@ -12,4 +12,7 @@ COPY	./my.cnf /etc/mysql/
 
 COPY	./start.sh /
 
+RUN chown -R mysql:mysql /var/lib/mysql
+RUN chown -R mysql:mysql /run/mysqld
+
 CMD		/start.sh
