@@ -26,7 +26,7 @@ services:
     # init: true
     depends_on:
       - mariadb
-    build: 
+    build:
       context: ./requirements/wordpress
     ports:
       - 9000:9000
@@ -43,7 +43,7 @@ services:
 #====== MARIADB ======#
   mariadb:
     # init: true
-    build: 
+    build:
       context: ./requirements/mariadb
     ports:
       - 3306:3306

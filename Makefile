@@ -14,10 +14,16 @@ up:
 	docker-compose -f srcs/docker-compose.yml up --build
 
 down:
-	docker-compose -f srcs/docker-compose.yml down
-
+	docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
 first:
 	curl https://wordpress.org/latest.tar.gz --output latest
 	tar -xf latest
 	rm -rf latest
 	mv wordpress ${PHP_NGINX}/wordpress
+
+fclean	:	clean
+	sudo docker system prune --volumes --all --force
+	sudo rm -rf /home/ade-la-c/data
+	sudo docker network prune --force
+	echo docker volume rm $(docker volume ls -q)
+	sudo docker image prune --force
