@@ -1,6 +1,6 @@
 PHP_NGINX	=	/home/ade-la-c/data/php_nginx
 
-DB			=	/home/ade-la-c/data/db
+DB			=	/home/ade-la-c/data/database
 
 all:	up
 		sudo mkdir -p /home/ade-la-c/data
