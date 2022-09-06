@@ -9,7 +9,7 @@ RUN		apt-get update -y && \
 
 RUN		mkdir -p /var/lib/mysqld /run/mysqld
 
-COPY	./create_db.sql /tmp/create_db.sql
+COPY	./create_db.sql /tmp/create_db.sql/
 
 COPY	./my.cnf /etc/my.cnf.d/
 
