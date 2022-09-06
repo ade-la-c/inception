@@ -3,6 +3,12 @@ PHP_NGINX	=	/home/ade-la-c/data/php_nginx
 DB			=	/home/ade-la-c/data/db
 
 all:	up
+		sudo mkdir -p /home/ade-la-c/data
+		sudo mkdir -p /home/ade-la-c/data/wordpress
+		sudo mkdir -p /home/ade-la-c/data/database
+		sudo chmod 777 /etc/hosts
+		sudo echo "127.0.0.1 ade-la-c.42.fr" >> /etc/hosts
+		sudo echo "127.0.0.1 www.ade-la-c.42.fr" >> /etc/host
 
 up:
 	docker-compose -f srcs/docker-compose.yml up --build
