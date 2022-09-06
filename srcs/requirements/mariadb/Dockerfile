@@ -17,7 +17,7 @@ COPY	./entrypoint.sh /
 RUN		chmod +x ./entrypoint.sh
 # RUN		mysql-install-db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
 
-RUN		chown -R mysql:mysql /var/lib/mysql
-RUN		chown -R mysql:mysql /run/mysqld
+RUN		chown -R mysql:root /var/lib/mysql
+RUN		chown -R mysql:root /run/mysqld
 
 ENTRYPOINT [ "sh", "entrypoint.sh" ]
