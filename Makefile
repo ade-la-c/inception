@@ -9,7 +9,7 @@ all:
 		sudo chmod 777 /etc/hosts
 		sudo echo "127.0.0.1 ade-la-c.42.fr" >> /etc/hosts
 		sudo echo "127.0.0.1 www.ade-la-c.42.fr" >> /etc/hosts
-		docker-compose -f srcs/docker-compose.yml up --build
+		sudo docker-compose -f srcs/docker-compose.yml up --build
 
 clean:
 	docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
