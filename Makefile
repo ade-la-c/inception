@@ -1,6 +1,6 @@
-PHP_NGINX	=	/home/hmesnard/data/php_nginx
+PHP_NGINX	=	/home/ade-la-c/data/php_nginx
 
-DB			=	/home/hmesnard/data/db
+DB			=	/home/ade-la-c/data/db
 
 all:	up
 
