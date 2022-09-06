@@ -54,7 +54,7 @@ services:
     env_file:
       - .env
     volumes:
-      - db:/var/lib/mysql
+      - database:/var/lib/mysql
 
 # NETWORKS #
 
@@ -77,4 +77,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/ade-la-c/data/db
+      device: /home/ade-la-c/data/database

@@ -5,7 +5,7 @@ DB			=	/home/ade-la-c/data/db
 all:	up
 		sudo mkdir -p /home/ade-la-c/data
 		sudo mkdir -p /home/ade-la-c/data/php_nginx
-		sudo mkdir -p /home/ade-la-c/data/db
+		sudo mkdir -p /home/ade-la-c/data/database
 		sudo chmod 777 /etc/hosts
 		sudo echo "127.0.0.1 ade-la-c.42.fr" >> /etc/hosts
 		sudo echo "127.0.0.1 www.ade-la-c.42.fr" >> /etc/hosts
