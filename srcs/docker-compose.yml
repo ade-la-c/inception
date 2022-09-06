@@ -68,13 +68,13 @@ volumes:
   php_nginx:
     driver: local
     driver_opts:
-      type: none
+      type: volume
       o: bind
       device: /home/ade-la-c/data/php_nginx
 
   database:
     driver: local
     driver_opts:
-      type: none
+      type: volume
       o: bind
       device: /home/ade-la-c/data/database
