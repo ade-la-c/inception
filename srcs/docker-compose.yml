@@ -4,16 +4,16 @@ services:
 
 #======= NGINX =======#
   nginx:
-    # init: true
+    init: true
     depends_on:
       - wordpress
-      - mariadb
+      # - mariadb
     build: 
       context: ./requirements/nginx
     ports:
       - 443:443
     container_name: nginx
-    restart: always
+    restart: unless-stopped
     networks:
       - docker-network
     volumes:
@@ -23,7 +23,7 @@ services:
 
 #===== WORDPRESS =====#
   wordpress:
-    # init: true
+    init: true
     depends_on:
       - mariadb
     build:
@@ -31,7 +31,7 @@ services:
     ports:
       - 9000:9000
     container_name: wordpress
-    restart: always
+    restart: unless-stopped
     networks:
       - docker-network
     env_file:
@@ -42,13 +42,13 @@ services:
 
 #====== MARIADB ======#
   mariadb:
-    # init: true
+    init: true
     build:
       context: ./requirements/mariadb
     ports:
       - 3306:3306
     container_name: mariadb
-    restart: always
+    restart: unless-stopped
     networks:
       - docker-network
     env_file:

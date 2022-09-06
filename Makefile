@@ -26,3 +26,7 @@ fclean	:	clean
 	sudo docker network prune --force
 	echo docker volume rm $(docker volume ls -q)
 	sudo docker image prune --force
+
+re: fclean all
+
+.PHONY: all clean fclean first clean
