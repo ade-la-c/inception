@@ -13,4 +13,4 @@ if [ $? -ne 0 ]; then
 	touch .setup
 fi
 #lancement de la DB mysql
-usr/bin/mysqld_safe --verbose --datadir=/var/lib/mysql #--auth-root-authentification-method=normal
+usr/bin/mysqld_safe --verbose --datadir=/var/lib/mysql --auth-root-authentification-method=normal

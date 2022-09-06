@@ -15,7 +15,7 @@ COPY	./my.cnf /etc/my.cnf.d/
 
 COPY	./entrypoint.sh /
 RUN		chmod +x ./entrypoint.sh
-RUN		mysql-install-db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
+# RUN		mysql-install-db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
 
 RUN		chown -R mysql:mysql /var/lib/mysql
 RUN		chown -R mysql:mysql /run/mysqld
