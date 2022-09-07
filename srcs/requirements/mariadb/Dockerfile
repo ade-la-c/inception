@@ -31,7 +31,6 @@ RUN apt-get update
 RUN apt-get upgrade
 
 RUN apt-get install -y mariadb-server
-# RUN	apt-get install mariadb-client -y
 RUN apt-get -y install vim
 
 COPY entrypoint.sh .
@@ -40,4 +39,5 @@ EXPOSE 3306
 COPY ./my.cnf /etc/mysql
 COPY ./entrypoint.sh .
 
-CMD		/entrypoint.sh
+ENTRYPOINT [ "sh", "entrypoint.sh" ]
+# CMD		/entrypoint.sh
