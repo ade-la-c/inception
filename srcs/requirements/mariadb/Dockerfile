@@ -5,7 +5,8 @@ FROM	debian:buster
 RUN		apt-get update -y && \
 		apt-get upgrade -y && \
 		apt-get install mariadb-server -y && \
-		apt-get install mariadb-client -y
+		apt-get install mariadb-client -y && \
+		apt-get install vim -y
 
 RUN		mkdir -p /var/lib/mysqld /run/mysqld
 
