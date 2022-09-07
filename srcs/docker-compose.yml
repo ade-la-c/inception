@@ -4,7 +4,7 @@ services:
 
 #======= NGINX =======#
   nginx:
-    init: true
+    # init: true
     depends_on:
       - wordpress
       # - mariadb
@@ -23,7 +23,7 @@ services:
 
 #===== WORDPRESS =====#
   wordpress:
-    init: true
+    # init: true
     depends_on:
       - mariadb
     build:
@@ -42,7 +42,7 @@ services:
 
 #====== MARIADB ======#
   mariadb:
-    init: true
+    # init: true
     build:
       context: ./requirements/mariadb
     ports:
