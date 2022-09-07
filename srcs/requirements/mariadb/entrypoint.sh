@@ -21,12 +21,12 @@ if [ ! -d "/var/lib/mysql/wordpress" ]; then
 
     mysql_install_db
     service mysql start
-	echo "DROP DATABASE wordpress;" | mysql -u root --password=root;
-	echo "CREATE USER 'root'@'%' IDENTIFIED BY 'root';" | mysql -u root --password=root;
+	echo "DROP DATABASE wordpress;" | mysql -u root --password=$MARIADB_ROOT_PWD;
+	echo "CREATE USER 'root'@'%' IDENTIFIED BY 'root';" | mysql -u root --password=$MARIADB_ROOT_PWD;
 	echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password;
-	echo "ALTER DATABASE wordpress CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_general_ci';" | mysql -u root --password=root;
-	echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;" |  mysql -u root --password=root;
-	echo "FLUSH PRIVILEGES;" |  mysql -u root --password=root;
+	echo "ALTER DATABASE wordpress CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_general_ci';" | mysql -u root --password=$MARIADB_ROOT_PWD;
+	echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;" |  mysql -u root --password=$MARIADB_ROOT_PWD;
+	echo "FLUSH PRIVILEGES;" |  mysql -u root --password=$MARIADB_ROOT_PWD;
     service mysql stop 
 fi
 #sleep 5
