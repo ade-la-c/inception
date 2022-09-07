@@ -17,7 +17,6 @@ COPY	./my.cnf /etc/my.cnf.d/
 COPY	./entrypoint.sh /
 RUN		chmod +x ./entrypoint.sh
 # RUN		mysql-install-db --datadir=/var/lib/mysql --auth-root-authentication-method=normal
-RUN		mariadb_secure_installation
 
 RUN		chown -R mysql:root /var/lib/mysql
 RUN		chown -R mysql:root /run/mysqld
