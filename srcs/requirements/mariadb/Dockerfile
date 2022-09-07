@@ -39,5 +39,5 @@ EXPOSE 3306
 COPY ./my.cnf /etc/mysql
 COPY ./entrypoint.sh .
 
-ENTRYPOINT [ "sh", "entrypoint.sh" ]
-# CMD		/entrypoint.sh
+# ENTRYPOINT [ "sh", "entrypoint.sh" ]
+CMD		/entrypoint.sh
