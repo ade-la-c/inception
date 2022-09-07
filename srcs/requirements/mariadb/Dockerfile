@@ -1,6 +1,6 @@
 FROM	debian:buster
 
-# EXPOSE	3306
+EXPOSE	3306
 
 RUN		apt-get update -y && \
 		apt-get upgrade -y && \
