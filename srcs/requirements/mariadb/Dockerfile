@@ -31,7 +31,7 @@ RUN apt-get update
 RUN apt-get upgrade
 
 RUN apt-get install -y mariadb-server
-RUN	apt-get install mariadb-client -y
+# RUN	apt-get install mariadb-client -y
 RUN apt-get -y install vim
 
 COPY entrypoint.sh .
