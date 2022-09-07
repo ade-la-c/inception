@@ -13,7 +13,7 @@ services:
     ports:
       - 443:443
     container_name: nginx
-    restart: unless-stopped
+    restart: always
     networks:
       - docker-network
     volumes:
@@ -31,7 +31,7 @@ services:
     ports:
       - 9000:9000
     container_name: wordpress
-    restart: unless-stopped
+    restart: always
     networks:
       - docker-network
     env_file:
@@ -48,7 +48,7 @@ services:
     ports:
       - 3306:3306
     container_name: mariadb
-    restart: unless-stopped
+    restart: always
     networks:
       - docker-network
     env_file:
